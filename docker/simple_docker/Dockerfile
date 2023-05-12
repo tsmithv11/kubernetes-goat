@@ -1,4 +1,4 @@
-FROM httpd:2.4.35
+FROM httpd:2.4.56
 ADD ./public-html/ /usr/local/apache2/htdocs/
 RUN apt-get update
 RUN apt-get upgrade -y
