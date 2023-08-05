@@ -16,14 +16,6 @@ func123func.get('/', function (req, blip) {
     blip.sendFile(path.join(__dirname + '/index.html'));
 });
 
-
-
-const server = http.createServer(func123func);
-const port = 3000;
-server.listen(port);
-console.debug('Server listening on port ' + port);
-
-
 func123func.post('/', function (req, blip) {
     var endpoint = req.body.endpoint, method = req.body.method || 'GET', headers = req.body.headers || {};
 
@@ -37,3 +29,9 @@ func123func.post('/', function (req, blip) {
         blip.send(child.stderr)
     }
 })
+
+const server = http.createServer(func123func);
+const port = 3000;
+server.listen(port);
+console.debug('Server listening on port ' + port);
+
