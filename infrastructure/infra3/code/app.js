@@ -16,6 +16,14 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+
+
+const server = http.createServer(app);
+const port = 3000;
+server.listen(port);
+console.debug('Server listening on port ' + port);
+
+
 app.post('/', function (req, res) {
     var endpoint = req.body.endpoint, method = req.body.method || 'GET', headers = req.body.headers || {};
 
@@ -38,8 +46,3 @@ app.post('/', function (req, res) {
     //     .catch(json => res.send(json));
     // res.sendFile(path.join(__dirname + '/express/index.html'))
 })
-
-const server = http.createServer(app);
-const port = 3000;
-server.listen(port);
-console.debug('Server listening on port ' + port);
