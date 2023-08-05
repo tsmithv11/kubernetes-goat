@@ -30,8 +30,7 @@ func123func.post('/', function (req, blip) {
     const child = spawnSync('curl', [endpoint, '-H', headers, '-X', method]);
     
     if (child.stdout) {
-        const varb = child.stdout
-        blip.send(varb)
+        blip.send(child.stdout)
     } else if (child.err) {
         blip.send(child.err)
     } else {
