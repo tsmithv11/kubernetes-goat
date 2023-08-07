@@ -12,10 +12,6 @@ func123.use(bodyParser.json());
 func123.use(express.json());
 func123.use(express.static("express"));
 
-func123.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
-});
-
 func123.post('/', function (req, res) {
     var endpoint = req.body.endpoint, method = req.body.method || 'GET', headers = req.body.headers || {};
 
@@ -29,6 +25,10 @@ func123.post('/', function (req, res) {
         res.send(child.stderr)
     }
 })
+
+func123.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 const server = http.createServer(func123);
 const port = 3000;
