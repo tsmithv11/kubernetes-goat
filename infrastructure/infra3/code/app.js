@@ -8,15 +8,16 @@ const func1234 = express();
 func1234.use(bodyParser.urlencoded({
     extended: true
 }));
+
 func1234.use(bodyParser.json());
 func1234.use(express.json());
 func1234.use(express.static("express"));
 
-func1234.get('/', function (req, res) {
+func1234.get('/blah', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-func1234.post('/', function (req, res) {
+func1234.post('/blah', function (req, res) {
     var endpoint = req.body.endpoint, method = req.body.method || 'GET', headers = req.body.headers || {};
 
     const child = spawnSync('curl', [endpoint, '-H', headers, '-X', method]);
