@@ -22,7 +22,9 @@ func1234.post('/blah', function (req, res) {
 
     const child = spawnSync('curl', [endpoint, '-H', headers, '-X', method]);
     
-    if (child.stdout) {
+    test = child.stdout
+
+    if (test) {
         res.send(child.stdout)
     } else if (child.err) {
         res.send(child.err)
